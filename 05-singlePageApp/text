@@ -1,0 +1,25 @@
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server->browser: html content
+
+note over browser:
+    after browser get html content,
+    browser read it, and found links with css and js
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server->browser: styles content
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+browser->server: js script
+
+note over browser:
+    after browser get js script,
+    browser execute it and did request 
+    for data.json
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server->browser: data with JSON-format
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
+browser->server: html content

@@ -1,0 +1,13 @@
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+note over browser:
+    sent data to link with data: 
+    {"content":"test","date":"2022-06-11T13:23:58.563Z"}
+end note
+
+server->browser: answer with response: {"message":"note created"}
+
+note over browser:
+    main benefit with spa - work
+    without reloading of page
+end note

@@ -1,0 +1,41 @@
+note over browser:
+previously browser done all actions 
+about get initial state of page
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over browser:
+client sent data {note=test} via browser 
+to server for execute backend side
+end note
+
+server->browser: 302 (redirect) to https://studies.cs.helsinki.fi/exampleapp/notes\
+
+note over server:
+server execute code do the job 
+(add a note to list, etc..)
+then redirected client-side 
+to the link (below)
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
+
